@@ -135,6 +135,49 @@
       </style>
     </section>
 
+    <section class="slide slide--bsa" id="redux-middleware">
+      <h2>Redux Middleware</h2>
+      <pre>
+        <span class="comment">// src/store/middlewares/logger/logger.middleware.js</span>
+        <code>const logger = <mark class="next">(store) =></mark> <mark class="next">(next) =></mark> <mark class="next">(action) =></mark> {</code>
+        <code class="next">  console.log('state before', store.getState());</code>
+        <code class="next">  console.log('dispatching', action);</code>
+        <code class="next">  next(action);</code>
+        <code class="next">  console.log('state after', store.getState());</code>
+        <code class="next">};</code>
+      </pre>
+      <pre class="next">
+        <span class="comment">// src/store/store.js</span>
+        <code>import { createStore, <mark class="important">applyMiddleware</mark> } from 'redux';</code>
+        <code>import { logger } from '../middlewares/middlewares.js';</code>
+        <code> </code>
+        <code class="mark">const store = createStore(reducer, applyMiddleware(logger));</code>
+      </pre>
+      <a class="redux-middleware__link" href="https://redux.js.org/understanding/history-and-design/middleware" target="_blank" rel="noreferrer">
+        Redux Middleware
+      </a>
+
+      <style>
+        #redux-middleware {
+          display: flex;
+          flex-direction: column;
+        }
+
+        #redux-middleware h2 {
+          margin-bottom: 5px;
+        }
+
+        #redux-middleware pre {
+          font-size: 13px;
+        }
+
+        #redux-middleware .redux-middleware__link {
+          align-self: center;
+          font-size: 14px;
+        }
+      </style>
+    </section>
+
     <footer class="badge">
       <a href="https://github.com/shower/shower">Fork me on GitHub</a>
     </footer>
