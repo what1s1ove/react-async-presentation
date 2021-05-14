@@ -23,12 +23,12 @@
 
     <header class="caption">
       <h1>React (part 3)</h1>
-      <p>Asynchronous Communications & tooling</p>
+      <p>Asynchronous Communications & Tooling</p>
     </header>
 
     <section class="slide" id="cover">
       <h2>React (part 3)</h2>
-      <p>Asynchronous Communications & tooling</p>
+      <p>Asynchronous Communications & Tooling</p>
       <a class="cover__lint" href="https://reactjs.org/" target="_blank" rel="noreferrer">
         <img src="pictures/react-logo.svg" width="150" height="150" alt="React logo">
       </a>
@@ -123,7 +123,7 @@
         #sync-async-redux p {
           display: flex;
           align-items: center;
-          justify-content: space-between;
+          justify-content: center;
           margin: 0 -50px;
         }
 
@@ -149,7 +149,7 @@
       <pre class="next">
         <span class="comment">// src/store/store.js</span>
         <code>import { createStore, <mark class="important">applyMiddleware</mark> } from 'redux';</code>
-        <code>import { logger } from '../middlewares/middlewares.js';</code>
+        <code>import { logger as loggerMiddleware } from '../middlewares/middlewares.js';</code>
         <code> </code>
         <code class="mark">const store = createStore(reducer, applyMiddleware(logger));</code>
       </pre>
@@ -168,12 +168,13 @@
         }
 
         #redux-middleware pre {
-          font-size: 13px;
+          font-size: 15px;
         }
 
         #redux-middleware .redux-middleware__link {
           align-self: center;
-          font-size: 14px;
+          margin: auto 0 30px;
+          font-size: 12px;
         }
       </style>
     </section>
