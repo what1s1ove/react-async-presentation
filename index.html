@@ -54,6 +54,33 @@
       </style>
     </section>
 
+    <section class="slide slide--bsa" id="app-overview">
+      <h2>App Overview</h2>
+      <a href="http://localhost:3000/" target="_blank" rel="noreferrer">
+        <img src="pictures/todolist-logo.svg" width="200" alt="Todo Logo">
+      </a>
+
+      <style>
+        #app-overview {
+          display: flex;
+          flex-direction: column;
+        }
+
+        #app-overview h2 {
+          margin-bottom: 100px;
+        }
+
+        #app-overview a {
+          align-self: center;
+          background-image: none;
+        }
+      </style>
+    </section>
+
+    <section>
+
+    </section>
+
     <section class="slide slide--bsa" id="redux-basic-flow">
       <h2>Redux Basic Flow</h2>
       <img src="pictures/redux-basic-flow.png" width="450" alt="Redux Basic Flow">
@@ -151,7 +178,7 @@
         <code>import { createStore, <mark class="important">applyMiddleware</mark> } from 'redux';</code>
         <code>import { logger as loggerMiddleware } from '../middlewares/middlewares.js';</code>
         <code> </code>
-        <code class="mark">const store = createStore(reducer, applyMiddleware(logger));</code>
+        <code class="mark">const store = createStore(reducer, applyMiddleware(loggerMiddleware));</code>
       </pre>
       <a class="redux-middleware__link" href="https://redux.js.org/understanding/history-and-design/middleware" target="_blank" rel="noreferrer">
         Redux Middleware
