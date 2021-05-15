@@ -131,9 +131,181 @@
       </style>
     </section>
 
+    <section class="slide slide--bsa" id="why-hooks">
+      <h2>Why Hooks</h2>
+      <ul>
+        <li class="next">Simplify entry threshold (OOP, this)</li>
+        <li class="next">Minimize app code (visually + bundle size)</li>
+        <li class="next">Reuse code and void HOC Hell</li>
+        <li class="next">
+          Add missing features to functional components:
+          <ul class="next">
+            <li>State</li>
+            <li class="next">Side effects</li>
+            <li class="next">Lifecycle methods</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section class="slide slide--bsa" id="how-hooks-work">
+      <h2>How Hooks Work</h2>
+      <ul>
+        <li class="next">Hook is a function. The function is called every time the component is rendered</li>
+        <li class="next">React tracks calls of these functions</li>
+        <li class="next">Hook is a common function but with a bit of magic</li>
+      </ul>
+    </section>
+
+    <section class="slide slide--bsa" id="hooks-limitations">
+      <h2>Hooks Limitations</h2>
+      <ul>
+        <li class="next">Cannot be used in class components</li>
+        <li class="next">The sequence of Hook is important. Cannot be used in conditions, loops</li>
+        <li class="next">Hooks can only be used in components or custom hooks</li>
+        <li class="next">
+          No support for all lifecycle methods:
+          <ul class="next">
+            <li>getSnapshotBeforeUpdate</li>
+            <li>getDerivedStateFromError</li>
+            <li>componentDidCatch</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section class="slide slide--bsa" id="react-hooks-api">
+      <h2>Hooks API</h2>
+      <div class="react-hooks-api__wrapper next">
+        <ul>
+          <li>
+            <a href="https://reactjs.org/docs/hooks-reference.html#usestate" target="_blank" rel="noreferrer">useState</a>
+          </li>
+          <li class="next">
+            <a href="https://reactjs.org/docs/hooks-reference.html#useeffect" target="_blank" rel="noreferrer">useEffect</a>
+          </li>
+          <li class="next">
+            <a href="https://reactjs.org/docs/hooks-reference.html#usecallback" target="_blank" rel="noreferrer">useCallback</a>
+          </li>
+          <li class="next">
+            <a href="https://reactjs.org/docs/hooks-reference.html#usememo" target="_blank" rel="noreferrer">useMemo</a>
+            and etc.
+          </li>
+        </ul>
+        <img src="pictures/classes-vs-hooks.png" width="650" alt="Classes vs Hooks">
+      </div>
+      <a class="react-hooks-api__link" href="https://reactjs.org/docs/hooks-reference.html" target="_blank" rel="noreferrer">reactjs.org/hooks-api</a>
+
+      <style>
+        #react-hooks-api {
+          display: flex;
+          flex-direction: column;
+        }
+
+        #react-hooks-api .react-hooks-api__wrapper {
+          display: flex;
+        }
+
+        #react-hooks-api ul {
+          font-size: 20px;
+          margin-right: 50px;
+        }
+
+        #react-hooks-api li {
+          white-space: nowrap;
+        }
+
+        #react-hooks-api .react-hooks-api__link {
+          align-self: center;
+          margin: auto 0 30px;
+          font-size: 12px;
+        }
+      </style>
+    </section>
+
+    <section class="slide slide--bsa" id="custom-hooks">
+      <h2>Custom Hooks</h2>
+      <pre class="next">
+        <code class="mark next">const useModalState = (initialOpen = false) => {</code>
+        <code class="mark next">  const [isOpen, setIsOpen] = useState(initialOpen); </code>
+        <code> </code>
+        <code>  const handleOpen = () => setIsOpen(true); </code>
+        <code>  const handleClose = () => setIsOpen(false); </code>
+        <code> </code>
+        <code>  return { </code>
+        <code>    isOpen, </code>
+        <code>    handleOpen, </code>
+        <code>    handleClose, </code>
+        <code>  }; </code>
+        <code>}; </code>
+      </pre>
+      <a href="https://reactjs.org/docs/hooks-custom.html" target="_blank" rel="noreferrer">reactjs.org/custom-hooks</a>
+
+      <style>
+        #custom-hooks {
+          display: flex;
+          flex-direction: column;
+        }
+
+        #custom-hooks pre {
+          font-size: 14px;
+        }
+
+        #custom-hooks pre {
+          display: none;
+        }
+
+        #custom-hooks pre.active,
+        #custom-hooks pre.visited {
+          display: block;
+        }
+
+        #custom-hooks a {
+          align-self: center;
+          margin: auto 0 30px;
+          font-size: 12px;
+        }
+      </style>
+    </section>
+
+    <section class="slide slide--bsa" id="third-party-hooks">
+      <h2>3rd Party Hooks</h2>
+      <ul>
+        <li class="next">
+          <a href="https://react-redux.js.org/api/hooks" target="_blank" rel="noreferrer">
+            Redux
+          </a>
+          <ul>
+            <li>
+              <a href="https://react-redux.js.org/api/hooks#useselector" target="_blank" rel="noreferrer">useSelector</a>
+            </li>
+            <li>
+              <a href="https://react-redux.js.org/api/hooks#usedispatch" target="_blank" rel="noreferrer">useDispatch</a>
+            </li>
+          </ul>
+        </li>
+        <li class="next">
+          <a href="https://reactrouter.com/web/api/Hooks" target="_blank" rel="noreferrer">
+            React Router
+          </a>
+          <ul>
+            <li>
+              <a href="https://reactrouter.com/web/api/Hooks/usehistory" target="_blank" rel="noreferrer">useHistory</a>
+            </li>
+            <li>
+              <a href="https://reactrouter.com/web/api/Hooks/uselocation" target="_blank" rel="noreferrer">useLocation</a>
+            </li>
+            <li>
+              <a href="https://reactrouter.com/web/api/Hooks/useparams" target="_blank" rel="noreferrer">useParams</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
     <section class="slide slide--bsa" id="redux-basic-flow">
       <h2>Redux Basic Flow</h2>
-      <img src="pictures/redux-basic-flow.png" width="450" alt="Redux Basic Flow">
+      <img class="next" src="pictures/redux-basic-flow.png" width="450" alt="Redux Basic Flow">
       <a href="http://slides.com/jenyaterpil/redux-from-twitter-hype-to-production" target="_blank" rel="noreferrer">
         Redux. From twitter hype to production
       </a>
@@ -158,7 +330,7 @@
 
     <section class="slide slide--bsa" id="redux-side-effects">
       <h2>Redux Side Effects</h2>
-      <img src="pictures/redux-side-effects.png" width="450" alt="Redux Basic Flow">
+      <img class="next" src="pictures/redux-side-effects.png" width="450" alt="Redux Basic Flow">
       <a href="http://slides.com/jenyaterpil/redux-from-twitter-hype-to-production" target="_blank" rel="noreferrer">
         Redux. From twitter hype to production
       </a>
@@ -183,7 +355,7 @@
 
     <section class="slide slide--bsa" id="sync-async-redux">
       <h2>Sync/Async Redux</h2>
-      <p>
+      <p class="next">
         <img src="pictures/redux-sync.gif" width="450" alt="Redux Basic Flow">
         <img src="pictures/redux-async.gif" width="400" alt="Redux Basic Flow">
       </p>
@@ -214,7 +386,7 @@
 
     <section class="slide slide--bsa" id="redux-middleware">
       <h2>Redux Middleware</h2>
-      <pre>
+      <pre class="next">
         <span class="comment">// src/store/middlewares/logger/logger.middleware.js</span>
         <code>const logger = <mark class="next">(store) =></mark> <mark class="next">(next) =></mark> <mark class="next">(action) =></mark> {</code>
         <code class="next">  console.log('state before', store.getState());</code>
@@ -245,7 +417,13 @@
         }
 
         #redux-middleware pre {
+          display: block;
           font-size: 15px;
+        }
+
+        #redux-middleware pre.active,
+        #redux-middleware pre.visited {
+          display: block;
         }
 
         #redux-middleware a {
