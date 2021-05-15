@@ -1,204 +1,603 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <title>Shower Presentation Engine</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="shower/themes/ribbon/styles/styles.css">
     <style>
-        .shower {
-            --slide-ratio: calc(16 / 9);
-        }
+      .shower {
+        --slide-ratio: calc(16 / 9);
+      }
+
+      .slide--bsa {
+        background-image: url('./pictures/binary-studio-logo.svg'), url('./pictures/binary-studio-academy-logo.svg');
+        background-repeat: no-repeat;
+        background-position: right 20px bottom 25px, left 20px bottom 15px;
+        background-size: 75px, 50px;
+      }
+
     </style>
-</head>
-<body class="shower list">
+  </head>
+  <body class="shower list">
 
     <header class="caption">
-        <h1>Shower Presentation Engine</h1>
-        <p>Yours Truly, Famous Inc.</p>
+      <h1>React (part 3)</h1>
+      <p>Asynchronous Communications & Tooling</p>
     </header>
 
     <section class="slide" id="cover">
-        <h2>Shower Presentation Engine</h2>
-        <p>Brought to you by <a href="https://pepelsbey.net">Vadim Makeev</a></p>
-        <figure>
-            <img class="cover" src="pictures/cover.jpg" alt="Hands on the orange typewriter in a park">
-            <figcaption class="copyright right white">
-                <a href="https://fiftyfootshadows.net">© John Carey</a>
-            </figcaption>
-        </figure>
-        <style>
-            #cover h2 {
-                margin: 30px 0 0;
-                color: white;
-                text-align: center;
-                font-size: 70px;
-            }
+      <h2>React (part 3)</h2>
+      <p>Asynchronous Communications & Tooling</p>
+      <a class="cover__link" href="https://reactjs.org/" target="_blank" rel="noreferrer">
+        <img src="pictures/react-logo.svg" width="150" height="150" alt="React logo">
+      </a>
+      <p class="copyright right">
+        <a href="https://whatislove.dev/" target="_blank" rel="noreferrer">© Vladyslav Zubko</a>
+      </p>
 
-            #cover p {
-                margin: 10px 0 0;
-                text-align: center;
-                color: white;
-                font-style: italic;
-                font-size: 20px;
-            }
+      <style>
+        #cover {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
 
-            #cover p a {
-                color: white;
-            }
-        </style>
+        #cover h2 {
+          margin: 100px 0 0;
+          text-align: center;
+        }
+
+        #cover .cover__link {
+          background-image: none;
+        }
+      </style>
     </section>
 
-    <section class="slide">
-        <h2>Shower key features</h2>
-        <ol>
-            <li>Built on HTML, CSS and JavaScript</li>
-            <li>Works in all modern browsers</li>
-            <li>Themes are separated from engine</li>
-            <li>Fully keyboard accessible</li>
-            <li>Printable to PDF</li>
-        </ol>
-        <p class="note">Shower ['ʃəuə] noun. A person or thing that shows.</p>
+    <section class="slide slide--bsa" id="app-overview">
+      <h2>App Overview</h2>
+      <a href="http://localhost:3000/" target="_blank" rel="noreferrer">
+        <img src="pictures/todolist-logo.svg" width="200" alt="Todo Logo">
+      </a>
+
+      <style>
+        #app-overview {
+          display: flex;
+          flex-direction: column;
+        }
+
+        #app-overview h2 {
+          margin-bottom: 100px;
+        }
+
+        #app-overview a {
+          align-self: center;
+          background-image: none;
+        }
+      </style>
     </section>
 
-    <section class="slide">
-        <h2>Plain text on your slides</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur <a href="#4">adipisicing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <em>quis nostrud</em> exercitation ullamco laboris <strong>nisi ut aliquip</strong> ex ea commodo consequat. Duis aute irure <i>dolor</i> in reprehenderit in voluptate velit esse cillum <b>dolore</b> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in <code>&lt;culpa&gt;</code> qui officia deserunt mollit anim id est laborum.</p>
+    <section class="slide slide--bsa" id="react-hooks">
+      <h2>React Hooks</h2>
+      <p class="next"><i>Hooks</i> are a new addition in React <b>16.8</b>. They let you use state and other React features without writing a class.</p>
+      <pre class="next">
+        <code>const Counter = () => {</code>
+        <code class="mark next">  const [count, setCount] = React.useState(0);</code>
+        <code>  return ( </code>
+        <code>    &lt;div&gt; </code>
+        <code class="mark next">      &lt;p&gt;You clicked {count} times&lt;/p&gt; </code>
+        <code class="mark next">      &lt;button onClick={() => setCount(count + 1)}> </code>
+        <code>        Click me </code>
+        <code>      &lt;/button&gt; </code>
+        <code>    &lt;/div&gt; </code>
+        <code>  ); </code>
+        <code>}</code>
+      </pre>
+      <a href="https://reactjs.org/docs/hooks-intro.html" target="_blank" rel="noreferrer">reactjs.org/hooks-intro</a>
+
+      <style>
+        #react-hooks {
+          display: flex;
+          flex-direction: column;
+        }
+
+        #react-hooks h2 {
+          margin-bottom: 10px;
+        }
+
+        #react-hooks p {
+          font-size: 17px;
+        }
+
+        #react-hooks pre {
+          font-size: 14px;
+        }
+
+        #react-hooks pre {
+          display: none;
+        }
+
+        #react-hooks pre.active,
+        #react-hooks pre.visited {
+          display: block;
+        }
+
+
+        #react-hooks a {
+          align-self: center;
+          margin: auto 0 30px;
+          font-size: 12px;
+        }
+      </style>
     </section>
 
-    <section class="slide">
-        <h2>Two columns if you like</h2>
-        <div class="columns two">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
-        </div>
+    <section class="slide slide--bsa" id="why-hooks">
+      <h2>Why Hooks</h2>
+      <ul>
+        <li class="next">Simplify entry threshold (OOP, this)</li>
+        <li class="next">Minimize app code (visually + bundle size)</li>
+        <li class="next">Reuse code and void HOC Hell</li>
+        <li class="next">
+          Add missing features to functional components:
+          <ul class="next">
+            <li>State</li>
+            <li class="next">Side effects</li>
+            <li class="next">Lifecycle methods</li>
+          </ul>
+        </li>
+      </ul>
     </section>
 
-    <section class="slide">
-        <h2>All kind of lists</h2>
-        <ol>
-            <li>Simple lists are marked with bullets</li>
-            <li>Ordered lists begin with a number</li>
-            <li>You can even nest lists one inside another
-                <ul>
-                    <li>Or mix their types</li>
-                    <li>But do not go too far</li>
-                    <li>Otherwise audience will be bored</li>
-                </ul>
+    <section class="slide slide--bsa" id="how-hooks-work">
+      <h2>How Hooks Work</h2>
+      <ul>
+        <li class="next">Hook is a function. The function is called every time the component is rendered</li>
+        <li class="next">React tracks calls of these functions</li>
+        <li class="next">Hook is a common function but with a bit of magic</li>
+      </ul>
+    </section>
+
+    <section class="slide slide--bsa" id="hooks-limitations">
+      <h2>Hooks Limitations</h2>
+      <ul>
+        <li class="next">Cannot be used in class components</li>
+        <li class="next">The sequence of Hook is important. Cannot be used in conditions, loops</li>
+        <li class="next">Hooks can only be used in components or custom hooks</li>
+        <li class="next">
+          No support for all lifecycle methods:
+          <ul class="next">
+            <li>getSnapshotBeforeUpdate</li>
+            <li>getDerivedStateFromError</li>
+            <li>componentDidCatch</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section class="slide slide--bsa" id="react-hooks-api">
+      <h2>Hooks API</h2>
+      <div class="react-hooks-api__wrapper next">
+        <ul>
+          <li>
+            <a href="https://reactjs.org/docs/hooks-reference.html#usestate" target="_blank" rel="noreferrer">useState</a>
+          </li>
+          <li class="next">
+            <a href="https://reactjs.org/docs/hooks-reference.html#useeffect" target="_blank" rel="noreferrer">useEffect</a>
+          </li>
+          <li class="next">
+            <a href="https://reactjs.org/docs/hooks-reference.html#usecallback" target="_blank" rel="noreferrer">useCallback</a>
+          </li>
+          <li class="next">
+            <a href="https://reactjs.org/docs/hooks-reference.html#usememo" target="_blank" rel="noreferrer">useMemo</a>
+            and etc.
+          </li>
+        </ul>
+        <img src="pictures/classes-vs-hooks.png" width="650" alt="Classes vs Hooks">
+      </div>
+      <a class="react-hooks-api__link" href="https://reactjs.org/docs/hooks-reference.html" target="_blank" rel="noreferrer">reactjs.org/hooks-api</a>
+
+      <style>
+        #react-hooks-api {
+          display: flex;
+          flex-direction: column;
+        }
+
+        #react-hooks-api .react-hooks-api__wrapper {
+          display: flex;
+        }
+
+        #react-hooks-api ul {
+          font-size: 20px;
+          margin-right: 50px;
+        }
+
+        #react-hooks-api li {
+          white-space: nowrap;
+        }
+
+        #react-hooks-api .react-hooks-api__link {
+          align-self: center;
+          margin: auto 0 30px;
+          font-size: 12px;
+        }
+      </style>
+    </section>
+
+    <section class="slide slide--bsa" id="custom-hooks">
+      <h2>Custom Hooks</h2>
+      <pre class="next">
+        <code class="mark next">const useModalState = (initialOpen = false) => {</code>
+        <code class="mark next">  const [isOpen, setIsOpen] = useState(initialOpen); </code>
+        <code> </code>
+        <code>  const handleOpen = () => setIsOpen(true); </code>
+        <code>  const handleClose = () => setIsOpen(false); </code>
+        <code> </code>
+        <code>  return { </code>
+        <code>    isOpen, </code>
+        <code>    handleOpen, </code>
+        <code>    handleClose, </code>
+        <code>  }; </code>
+        <code>}; </code>
+      </pre>
+      <a href="https://reactjs.org/docs/hooks-custom.html" target="_blank" rel="noreferrer">reactjs.org/custom-hooks</a>
+
+      <style>
+        #custom-hooks {
+          display: flex;
+          flex-direction: column;
+        }
+
+        #custom-hooks pre {
+          font-size: 14px;
+        }
+
+        #custom-hooks pre {
+          display: none;
+        }
+
+        #custom-hooks pre.active,
+        #custom-hooks pre.visited {
+          display: block;
+        }
+
+        #custom-hooks a {
+          align-self: center;
+          margin: auto 0 30px;
+          font-size: 12px;
+        }
+      </style>
+    </section>
+
+    <section class="slide slide--bsa" id="third-party-hooks">
+      <h2>3rd Party Hooks</h2>
+      <ul>
+        <li class="next">
+          <a href="https://react-redux.js.org/api/hooks" target="_blank" rel="noreferrer">
+            Redux
+          </a>
+          <ul>
+            <li>
+              <a href="https://react-redux.js.org/api/hooks#useselector" target="_blank" rel="noreferrer">useSelector</a>
             </li>
-            <li>Look, seven rows exactly!</li>
-        </ol>
+            <li>
+              <a href="https://react-redux.js.org/api/hooks#usedispatch" target="_blank" rel="noreferrer">useDispatch</a>
+            </li>
+          </ul>
+        </li>
+        <li class="next">
+          <a href="https://reactrouter.com/web/api/Hooks" target="_blank" rel="noreferrer">
+            React Router
+          </a>
+          <ul>
+            <li>
+              <a href="https://reactrouter.com/web/api/Hooks/usehistory" target="_blank" rel="noreferrer">useHistory</a>
+            </li>
+            <li>
+              <a href="https://reactrouter.com/web/api/Hooks/uselocation" target="_blank" rel="noreferrer">useLocation</a>
+            </li>
+            <li>
+              <a href="https://reactrouter.com/web/api/Hooks/useparams" target="_blank" rel="noreferrer">useParams</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
     </section>
 
-    <section class="slide">
-        <h2>Serious citations</h2>
-        <figure>
-            <blockquote>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
-            </blockquote>
-            <figcaption>Marcus Tullius Cicero</figcaption>
-        </figure>
+    <section class="slide slide--bsa" id="redux-basic-flow">
+      <h2>Redux Basic Flow</h2>
+      <img class="next" src="pictures/redux-basic-flow.png" width="450" alt="Redux Basic Flow">
+      <a href="http://slides.com/jenyaterpil/redux-from-twitter-hype-to-production" target="_blank" rel="noreferrer">
+        Redux. From twitter hype to production
+      </a>
+
+      <style>
+        #redux-basic-flow {
+          display: flex;
+          flex-direction: column;
+        }
+
+        #redux-basic-flow img {
+          align-self: center;
+        }
+
+        #redux-basic-flow a {
+          margin: auto 0 30px;
+          align-self: center;
+          font-size: 12px;
+        }
+      </style>
     </section>
 
-    <section class="slide">
-        <h2>Code samples</h2>
+    <section class="slide slide--bsa" id="redux-side-effects">
+      <h2>Redux Side Effects</h2>
+      <img class="next" src="pictures/redux-side-effects.png" width="450" alt="Redux Basic Flow">
+      <a href="http://slides.com/jenyaterpil/redux-from-twitter-hype-to-production" target="_blank" rel="noreferrer">
+        Redux. From twitter hype to production
+      </a>
+
+      <style>
+        #redux-side-effects {
+          display: flex;
+          flex-direction: column;
+        }
+
+        #redux-side-effects img {
+          align-self: center;
+        }
+
+        #redux-side-effects a {
+          margin: auto 0 30px;
+          align-self: center;
+          font-size: 12px;
+        }
+      </style>
+    </section>
+
+    <section class="slide slide--bsa" id="sync-async-redux">
+      <h2>Sync/Async Redux</h2>
+      <p class="next">
+        <img src="pictures/redux-sync.gif" width="450" alt="Redux Basic Flow">
+        <img src="pictures/redux-async.gif" width="400" alt="Redux Basic Flow">
+      </p>
+      <a href="http://slides.com/jenyaterpil/redux-from-twitter-hype-to-production" target="_blank" rel="noreferrer">
+        Redux. From twitter hype to production
+      </a>
+
+      <style>
+        #sync-async-redux {
+          display: flex;
+          flex-direction: column;
+        }
+
+        #sync-async-redux p {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0 -50px;
+        }
+
+        #sync-async-redux a {
+          margin: auto 0 30px;
+          align-self: center;
+          font-size: 12px;
+        }
+      </style>
+    </section>
+
+    <section class="slide slide--bsa" id="redux-middleware">
+      <h2>Redux Middleware</h2>
+      <pre class="next">
+        <span class="comment">// src/store/middlewares/logger/logger.middleware.js</span>
+        <code>const logger = <mark class="next">(store) =></mark> <mark class="next">(next) =></mark> <mark class="next">(action) =></mark> {</code>
+        <code class="next">  console.log('state before', store.getState());</code>
+        <code class="next">  console.log('dispatching', action);</code>
+        <code class="next">  next(action);</code>
+        <code class="next">  console.log('state after', store.getState());</code>
+        <code class="next">};</code>
+      </pre>
+      <pre class="next">
+        <span class="comment">// src/store/store.js</span>
+        <code>import { createStore, <mark class="important">applyMiddleware</mark> } from 'redux';</code>
+        <code>import { logger as loggerMiddleware } from '../middlewares/middlewares.js';</code>
+        <code> </code>
+        <code class="mark">const store = createStore(reducer, applyMiddleware(loggerMiddleware));</code>
+      </pre>
+      <a href="https://redux.js.org/understanding/history-and-design/middleware" target="_blank" rel="noreferrer">
+        Redux Middleware
+      </a>
+
+      <style>
+        #redux-middleware {
+          display: flex;
+          flex-direction: column;
+        }
+
+        #redux-middleware h2 {
+          margin-bottom: 5px;
+        }
+
+        #redux-middleware pre {
+          display: block;
+          font-size: 15px;
+        }
+
+        #redux-middleware pre.active,
+        #redux-middleware pre.visited {
+          display: block;
+        }
+
+        #redux-middleware a {
+          align-self: center;
+          margin: auto 0 30px;
+          font-size: 12px;
+        }
+      </style>
+    </section>
+
+    <section class="slide slide--bsa" id="thunk">
+      <h2>Thunk</h2>
+      <p class="next">
+        source code:
+        <a href="https://github.com/reduxjs/redux-thunk/blob/master/src/index.js" target="_blank" rel="noreferrer">
+          github.com/redux-thunk
+        </a>
+      </p>
+      <a class="thunk__link" href="https://www.npmjs.com/package/redux-thunk" target="_blank" rel="noreferrer">
+        npmjs.com/redux-thunk
+      </a>
+
+      <style>
+        #thunk {
+          display: flex;
+          flex-direction: column;
+        }
+
+        #thunk .thunk__link {
+          align-self: center;
+          margin: auto 0 30px;
+          font-size: 12px;
+        }
+      </style>
+    </section>
+
+    <section class="slide slide--bsa" id="redux-toolkit">
+      <h2>Redux Toolkit</h2>
+      <a class="next" href="https://redux-toolkit.js.org/" target="_blank" rel="noreferrer">
+        <img src="pictures/redux-logo.svg" width="250" alt="Redux Toolkit">
+      </a>
+
+      <style>
+        #redux-toolkit h2 {
+          margin-bottom: 50px;
+        }
+
+        #redux-toolkit a {
+          display: flex;
+          justify-content: center;
+          background-image: none;
+        }
+      </style>
+    </section>
+
+    <section class="slide slide--bsa" id="redux-saga">
+      <h2>Redux Saga</h2>
+      <a class="next" href="https://redux-saga.js.org/" target="_blank" rel="noreferrer">
+        <img src="pictures/redux-saga-logo.svg" width="400" alt="Redux Saga">
+      </a>
+
+      <style>
+        #redux-saga h2 {
+          margin-bottom: 75px;
+        }
+
+        #redux-saga a {
+          display: flex;
+          justify-content: center;
+          background-image: none;
+        }
+      </style>
+    </section>
+
+    <section class="slide slide--bsa" id="react-router">
+      <h2>React Router</h2>
+
+      <a class="thunk__link next" href="https://reactrouter.com/" target="_blank" rel="noreferrer">
+        <img src="pictures/react-router-logo.svg" width="250" alt="React Router">
+      </a>
+
+      <style>
+        #react-router h2 {
+          margin-bottom: 100px;
+        }
+
+        #react-router a {
+          display: flex;
+          justify-content: center;
+          background-image: none;
+        }
+      </style>
+    </section>
+
+    <section class="slide slide--bsa" id="react-router-example">
+      <h2>React Router</h2>
+      <div class="react-router-example__wrapper">
+        <ul>
+          <li class="next">
+            <a href="https://reactrouter.com/web/api/BrowserRouter" target="_blank" rel="noreferrer">BrowserRouter</a>
+          </li>
+          <li class="next">
+            <a href="https://reactrouter.com/web/api/Route" target="_blank" rel="noreferrer">Route</a>
+            <ul>
+              <li>path</li>
+              <li>component</li>
+              <li>exact</li>
+            </ul>
+          </li>
+          <li class="next">
+            <a href="https://reactrouter.com/web/api/Switch" target="_blank" rel="noreferrer">Switch</a>
+          </li>
+          <li class="next">
+            <a href="https://reactrouter.com/web/api/Link" target="_blank" rel="noreferrer">Link</a>
+            <ul>
+              <li>to</li>
+            </ul>
+          </li>
+          <li class="next">
+            <a href="https://reactrouter.com/web/api/Redirect" target="_blank" rel="noreferrer">Redirect</a>
+            <ul>
+              <li>to</li>
+            </ul>
+          </li>
+        </ul>
         <pre>
-            <code>&lt;!DOCTYPE html&gt;</code>
-            <code class="mark">&lt;html lang="en"&gt;</code>
-            <code><mark>&lt;head&gt;</mark> <span class="comment">&lt;!--Comment--&gt;</span></code>
-            <code>    &lt;title&gt;Shower&lt;/title&gt;</code>
-            <code>    &lt;meta charset="<mark class="important">UTF-8</mark>"&gt;</code>
-            <code>    &lt;link rel="stylesheet" href="screen.css"&gt;</code>
-            <code><mark>&lt;/head&gt;</mark></code>
+          <code>import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';</code>
+          <code> </code>
+          <code>const App = () => ( </code>
+          <code>  &lt;Router&gt; </code>
+          <code>    &lt;&gt; </code>
+          <code>      &lt;ul&gt; </code>
+          <code>        &lt;li&gt;&lt;Link to={AppRoute.ROOT}&gt;Home&lt;/Link&gt;&lt;/li&gt;</code>
+          <code>        &lt;li&gt;&lt;Link to={AppRoute.ABOUT}&gt;About&lt;/Link&gt;&lt;/li&gt;</code>
+          <code>      &lt;/ul&gt; </code>
+          <code>      &lt;Switch&gt; </code>
+          <code>        &lt;Route path={AppRoute.ABOUT} component={About} /&gt; </code>
+          <code>        &lt;Route path={AppRoute.ROOT} component={Home} /&gt; </code>
+          <code>      &lt;/Switch&gt; </code>
+          <code>    &lt;/&gt; </code>
+          <code>  &lt;/Router&gt;</code>
+          <code>); </code>
         </pre>
+      </div>
+
+      <style>
+        #react-router-example .react-router-example__wrapper {
+          display: flex;
+        }
+
+        #react-router-example ul {
+          font-size: 14px;
+          margin-right: 50px;
+        }
+
+        #react-router-example pre {
+          font-size: 11px;
+        }
+      </style>
     </section>
 
-    <section class="slide">
-        <h2>Even tables</h2>
-        <table>
-        <tr>
-            <th scope="col">Locavore</th>
-            <th>Umami</th>
-            <th>Helvetica</th>
-            <th>Vegan</th>
-        </tr>
-        <tr>
-            <th scope="row">Fingerstache</th>
-            <td>Kale</td>
-            <td>Chips</td>
-            <td>Keytar</td>
-        </tr>
-        <tr>
-            <th scope="row">Sriracha</th>
-            <td>Gluten-free</td>
-            <td>Ennui</td>
-            <td>Keffiyeh</td>
-        </tr>
-        <tr>
-            <th scope="row">Thundercats</th>
-            <td>Jean</td>
-            <td>Shorts</td>
-            <td>Biodiesel</td>
-        </tr>
-        <tr>
-            <th scope="row">Terry</th>
-            <td>Richardson</td>
-            <td>Swag</td>
-            <td>Blog</td>
-        </tr>
-        </table>
-        <p>It’s good to have information organized.</p>
-    </section>
+    <section class="slide slide--bsa" id="thanks">
+      <h2>Thanks 🍒</h2>
 
-    <section class="slide" id="picture">
-        <h2>Pictures</h2>
-        <figure>
-            <img class="cover" src="pictures/picture.jpg" alt="Orange typewriter on a wooden table close-up">
-            <figcaption class="copyright right white">
-                <a href="https://fiftyfootshadows.net">© John Carey</a>
-            </figcaption>
-        </figure>
-        <style>
-            #picture h2 {
-                color: white;
-            }
-        </style>
-    </section>
-
-    <section class="slide">
-        <h2 class="shout shrink">You can even shout this way</h2>
-    </section>
-
-    <section class="slide">
-        <h2>Inner navigation</h2>
-        <ol>
-            <li>Lets you reveal list items one by one</li>
-            <li class="next">To keep some key points</li>
-            <li class="next">In secret from audience</li>
-            <li class="next">But it will work only once</li>
-            <li class="next">Nobody wants to see the same joke twice</li>
-        </ol>
-    </section>
-
-    <section class="slide" id="see-more">
-        <h2 class="shout">
-            <img src="pictures/logo.svg" alt="Shower logo">
-            <a href="https://github.com/shower/shower">See more on GitHub</a>
-        </h2>
-        <style>
-            #see-more h2 {
-                font-size: 100px
-            }
-
-            #see-more img {
-                width: 0.72em;
-                height: 0.72em;
-            }
-        </style>
+      <style>
+        #thanks {
+          display: grid;
+          place-content: center;
+        }
+      </style>
     </section>
 
     <footer class="badge">
-        <a href="https://github.com/shower/shower">Fork me on GitHub</a>
+      <a href="https://github.com/shower/shower">Fork me on GitHub</a>
     </footer>
 
     <div class="progress"></div>
@@ -206,5 +605,5 @@
     <script src="shower/shower.js"></script>
     <!-- Copyright © 3000 Yours Truly, Famous Inc. -->
 
-</body>
+  </body>
 </html>
