@@ -29,7 +29,7 @@
     <section class="slide" id="cover">
       <h2>React (part 3)</h2>
       <p>Asynchronous Communications & Tooling</p>
-      <a class="cover__lint" href="https://reactjs.org/" target="_blank" rel="noreferrer">
+      <a class="cover__link" href="https://reactjs.org/" target="_blank" rel="noreferrer">
         <img src="pictures/react-logo.svg" width="150" height="150" alt="React logo">
       </a>
       <p class="copyright right">
@@ -48,7 +48,7 @@
           text-align: center;
         }
 
-        #cover .cover__lint {
+        #cover .cover__link {
           background-image: none;
         }
       </style>
@@ -77,8 +77,58 @@
       </style>
     </section>
 
-    <section>
+    <section class="slide slide--bsa" id="react-hooks">
+      <h2>React Hooks</h2>
+      <p class="next"><i>Hooks</i> are a new addition in React <b>16.8</b>. They let you use state and other React features without writing a class.</p>
+      <pre class="next">
+        <code>const Counter = () => {</code>
+        <code class="mark next">  const [count, setCount] = React.useState(0);</code>
+        <code>  return ( </code>
+        <code>    &lt;div&gt; </code>
+        <code class="mark next">      &lt;p&gt;You clicked {count} times&lt;/p&gt; </code>
+        <code class="mark next">      &lt;button onClick={() => setCount(count + 1)}> </code>
+        <code>        Click me </code>
+        <code>      &lt;/button&gt; </code>
+        <code>    &lt;/div&gt; </code>
+        <code>  ); </code>
+        <code>}</code>
+      </pre>
+      <a href="https://reactjs.org/docs/hooks-intro.html" target="_blank" rel="noreferrer">reactjs.org/hooks-intro</a>
 
+      <style>
+        #react-hooks {
+          display: flex;
+          flex-direction: column;
+        }
+
+        #react-hooks h2 {
+          margin-bottom: 10px;
+        }
+
+        #react-hooks p {
+          font-size: 17px;
+        }
+
+        #react-hooks pre {
+          font-size: 14px;
+        }
+
+        #react-hooks pre {
+          display: none;
+        }
+
+        #react-hooks pre.active,
+        #react-hooks pre.visited {
+          display: block;
+        }
+
+
+        #react-hooks a {
+          align-self: center;
+          margin: auto 0 30px;
+          font-size: 12px;
+        }
+      </style>
     </section>
 
     <section class="slide slide--bsa" id="redux-basic-flow">
@@ -180,7 +230,7 @@
         <code> </code>
         <code class="mark">const store = createStore(reducer, applyMiddleware(loggerMiddleware));</code>
       </pre>
-      <a class="redux-middleware__link" href="https://redux.js.org/understanding/history-and-design/middleware" target="_blank" rel="noreferrer">
+      <a href="https://redux.js.org/understanding/history-and-design/middleware" target="_blank" rel="noreferrer">
         Redux Middleware
       </a>
 
@@ -198,7 +248,7 @@
           font-size: 15px;
         }
 
-        #redux-middleware .redux-middleware__link {
+        #redux-middleware a {
           align-self: center;
           margin: auto 0 30px;
           font-size: 12px;
