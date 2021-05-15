@@ -499,6 +499,73 @@
       </style>
     </section>
 
+    <section class="slide slide--bsa" id="react-router-example">
+      <h2>React Router</h2>
+      <div class="react-router-example__wrapper">
+        <ul>
+          <li class="next">
+            <a href="https://reactrouter.com/web/api/BrowserRouter" target="_blank" rel="noreferrer">BrowserRouter</a>
+          </li>
+          <li class="next">
+            <a href="https://reactrouter.com/web/api/Route" target="_blank" rel="noreferrer">Route</a>
+            <ul>
+              <li>path</li>
+              <li>component</li>
+              <li>exact</li>
+            </ul>
+          </li>
+          <li class="next">
+            <a href="https://reactrouter.com/web/api/Switch" target="_blank" rel="noreferrer">Switch</a>
+          </li>
+          <li class="next">
+            <a href="https://reactrouter.com/web/api/Link" target="_blank" rel="noreferrer">Link</a>
+            <ul>
+              <li>to</li>
+            </ul>
+          </li>
+          <li class="next">
+            <a href="https://reactrouter.com/web/api/Redirect" target="_blank" rel="noreferrer">Redirect</a>
+            <ul>
+              <li>to</li>
+            </ul>
+          </li>
+        </ul>
+        <pre>
+          <code>import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';</code>
+          <code> </code>
+          <code>const App = () => ( </code>
+          <code>  &lt;Router&gt; </code>
+          <code>    &lt;&gt; </code>
+          <code>      &lt;ul&gt; </code>
+          <code>        &lt;li&gt;&lt;Link to={AppRoute.ROOT}&gt;Home&lt;/Link&gt;&lt;/li&gt;</code>
+          <code>        &lt;li&gt;&lt;Link to={AppRoute.ABOUT}&gt;About&lt;/Link&gt;&lt;/li&gt;</code>
+          <code>      &lt;/ul&gt; </code>
+          <code>      &lt;Switch&gt; </code>
+          <code>        &lt;Route path={AppRoute.ABOUT} component={About} /&gt; </code>
+          <code>        &lt;Route path={AppRoute.ROOT} component={Home} /&gt; </code>
+          <code>      &lt;/Switch&gt; </code>
+          <code>    &lt;/&gt; </code>
+          <code>  &lt;/Router&gt;</code>
+          <code>); </code>
+        </pre>
+      </div>
+
+      <style>
+        #react-router-example .react-router-example__wrapper {
+          display: flex;
+        }
+
+        #react-router-example ul {
+          font-size: 14px;
+          margin-right: 50px;
+        }
+
+        #react-router-example pre {
+          font-size: 11px;
+        }
+      </style>
+    </section>
+
     <footer class="badge">
       <a href="https://github.com/shower/shower">Fork me on GitHub</a>
     </footer>
