@@ -10,13 +10,16 @@
         --slide-ratio: calc(16 / 9);
       }
 
+      .slide::after {
+        display: none;
+      }
+
       .slide--bsa {
         background-image: url('./pictures/binary-studio-logo.svg'), url('./pictures/binary-studio-academy-logo.svg');
         background-repeat: no-repeat;
         background-position: right 20px bottom 25px, left 20px bottom 15px;
         background-size: 75px, 50px;
       }
-
     </style>
   </head>
   <body class="shower list">
@@ -79,7 +82,7 @@
 
     <section class="slide slide--bsa" id="react-hooks">
       <h2>React Hooks</h2>
-      <p class="next"><i>Hooks</i> are a new addition in React <b>16.8</b>. They let you use state and other React features without writing a class.</p>
+      <p class="next">Hooks are a new addition in React <b>16.8</b>. They let you use state and other React features without writing a class.</p>
       <pre class="next">
         <code>const Counter = () => {</code>
         <code class="mark next">  const [count, setCount] = React.useState(0);</code>
@@ -139,7 +142,7 @@
         <li class="next">Reuse code and void HOC Hell</li>
         <li class="next">
           Add missing features to functional components:
-          <ul class="next">
+          <ul>
             <li>State</li>
             <li class="next">Side effects</li>
             <li class="next">Lifecycle methods</li>
@@ -165,7 +168,7 @@
         <li class="next">Hooks can only be used in components or custom hooks</li>
         <li class="next">
           No support for all lifecycle methods:
-          <ul class="next">
+          <ul>
             <li>getSnapshotBeforeUpdate</li>
             <li>getDerivedStateFromError</li>
             <li>componentDidCatch</li>
@@ -462,67 +465,185 @@
 
     <section class="slide slide--bsa" id="redux-toolkit">
       <h2>Redux Toolkit</h2>
-      <a class="next" href="https://redux-toolkit.js.org/" target="_blank" rel="noreferrer">
-        <img src="pictures/redux-logo.svg" width="250" alt="Redux Toolkit">
+      <img class="next" src="pictures/redux-logo.svg" width="250" alt="Redux Toolkit">
+      <a href="https://redux-toolkit.js.org/" target="_blank" rel="noreferrer">
+        Redux Toolkit
       </a>
 
       <style>
+        #redux-toolkit {
+          display: flex;
+          flex-direction: column;
+        }
+
         #redux-toolkit h2 {
           margin-bottom: 50px;
         }
 
+        #redux-toolkit img {
+          align-self: center;
+        }
+
         #redux-toolkit a {
-          display: flex;
-          justify-content: center;
-          background-image: none;
+          align-self: center;
+          margin: auto 0 30px;
+          font-size: 12px;
         }
       </style>
     </section>
 
     <section class="slide slide--bsa" id="redux-saga">
       <h2>Redux Saga</h2>
-      <a class="next" href="https://redux-saga.js.org/" target="_blank" rel="noreferrer">
+      <div class="next">
+        <p>Sagas are implemented as <b>Generator</b> functions that yield objects</p>
         <img src="pictures/redux-saga-logo.svg" width="400" alt="Redux Saga">
+      </div>
+      <a href="https://redux-saga.js.org/" target="_blank" rel="noreferrer">
+        Redux Saga
       </a>
 
       <style>
+        #redux-saga {
+          display: flex;
+          flex-direction: column;
+        }
+
         #redux-saga h2 {
-          margin-bottom: 75px;
+          margin-bottom: 50px;
+        }
+
+        #redux-saga img {
+          display: block;
+          margin: 0 auto;
         }
 
         #redux-saga a {
+          align-self: center;
+          margin: auto 0 30px;
+          font-size: 12px;
+        }
+      </style>
+    </section>
+
+    <section class="slide slide--bsa" id="redux-saga-flow">
+      <h2>Redux Saga Flow</h2>
+      <img src="pictures/redux-sage-schema.png" width="450" alt="Redux Saga Schema">
+
+      <style>
+        #redux-saga-flow img {
+          display: block;
+          margin: 0 auto;
+        }
+      </style>
+    </section>
+
+    <section class="slide slide--bsa" id="redux-saga-effects">
+      <h2>Redux Saga Effects</h2>
+      <div class="redux-saga-effects__wrapper next">
+        <ul>
+          <li>
+            <a href="https://redux-saga.js.org/docs/api/#callfn-args" target="_blank" rel="noreferrer">call</a>
+            — calls function with passed arguments
+          </li>
+          <li class="next">
+            <a href="https://redux-saga.js.org/docs/api/#putaction" target="_blank" rel="noreferrer">put</a>
+            — dispatches action
+          </li>
+          <li class="next">
+            <a href="https://redux-saga.js.org/docs/api/#selectselector-args" target="_blank" rel="noreferrer">select</a>
+            — gets data from store
+          </li>
+          <li class="next">
+            <a href="https://redux-saga.js.org/docs/api/#takeeverypattern-saga-args" target="_blank" rel="noreferrer">takeEvery</a>
+            — spawns saga on each dispatched action
+          </li>
+          <li class="next">
+            and 50+ more
+          </li>
+        </ul>
+        <pre>
+          <code>import { <mark>mark</mark>, <mark>put</mark>, <mark>takeEvery</mark> } from 'redux-saga/effects';</code>
+          <code> </code>
+          <code>function* getUser(action) {</code>
+          <code>  try {</code>
+          <code>    const user = yield <mark>call</mark>(userApi.fetchUser, action.payload.userId);</code>
+          <code>    yield <mark>put</mark>({ type: UserActionType.GET_USER_SUCCESS, user: user });</code>
+          <code>  } catch (err) {</code>
+          <code>    yield <mark>put</mark>({ type: UserActionType.GET_USER_FAIL, message: err.message });</code>
+          <code>  }</code>
+          <code>}</code>
+          <code> </code>
+          <code>function* userSaga() {</code>
+          <code>  yield <mark>takeEvery</mark>(UserActionType.GET_USER, getUser);</code>
+          <code>}</code>
+        </pre>
+      </div>
+      <a class="redux-saga-effects__link" href="https://redux-saga.js.org/docs/api/#effect-creators" target="_blank" rel="noreferrer">
+        Redux Saga Effects
+      </a>
+
+      <style>
+        #redux-saga-effects {
           display: flex;
-          justify-content: center;
-          background-image: none;
+          flex-direction: column;
+        }
+
+        #redux-saga-effects .redux-saga-effects__wrapper {
+          display: flex;
+        }
+
+        #redux-saga-effects ul {
+          font-size: 14px;
+          margin-right: 50px;
+          white-space: nowrap;
+        }
+
+        #redux-saga-effects pre {
+          font-size: 12px;
+        }
+
+        #redux-saga-effects .redux-saga-effects__link {
+          align-self: center;
+          margin: auto 0 30px;
+          font-size: 12px;
         }
       </style>
     </section>
 
     <section class="slide slide--bsa" id="react-router">
       <h2>React Router</h2>
-
-      <a class="thunk__link next" href="https://reactrouter.com/" target="_blank" rel="noreferrer">
-        <img src="pictures/react-router-logo.svg" width="250" alt="React Router">
+      <img class="next" src="pictures/react-router-logo.svg" width="250" alt="React Router">
+      <a href="https://reactrouter.com/" target="_blank" rel="noreferrer">
+        React Router
       </a>
 
       <style>
+        #react-router {
+          display: flex;
+          flex-direction: column;
+        }
+
         #react-router h2 {
           margin-bottom: 100px;
         }
 
+        #react-router img {
+          align-self: center;
+        }
+
         #react-router a {
-          display: flex;
-          justify-content: center;
-          background-image: none;
+          align-self: center;
+          margin: auto 0 30px;
+          font-size: 12px;
         }
       </style>
     </section>
 
     <section class="slide slide--bsa" id="react-router-example">
       <h2>React Router</h2>
-      <div class="react-router-example__wrapper">
+      <div class="react-router-example__wrapper next">
         <ul>
-          <li class="next">
+          <li>
             <a href="https://reactrouter.com/web/api/BrowserRouter" target="_blank" rel="noreferrer">BrowserRouter</a>
           </li>
           <li class="next">
@@ -553,18 +674,18 @@
           <code>import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';</code>
           <code> </code>
           <code>const App = () => ( </code>
-          <code>  &lt;Router&gt; </code>
+          <code>  <mark>&lt;Router&gt;</mark> </code>
           <code>    &lt;&gt; </code>
           <code>      &lt;ul&gt; </code>
-          <code>        &lt;li&gt;&lt;Link to={AppRoute.ROOT}&gt;Home&lt;/Link&gt;&lt;/li&gt;</code>
-          <code>        &lt;li&gt;&lt;Link to={AppRoute.ABOUT}&gt;About&lt;/Link&gt;&lt;/li&gt;</code>
+          <code>        &lt;li&gt;<mark>&lt;Link to={AppRoute.ROOT}&gt;</mark>Home<mark>&lt;/Link&gt;</mark>&lt;/li&gt;</code>
+          <code>        &lt;li&gt;<mark>&lt;Link to={AppRoute.ABOUT}&gt;</mark>About<mark>&lt;/Link&gt;</mark>&lt;/li&gt;</code>
           <code>      &lt;/ul&gt; </code>
-          <code>      &lt;Switch&gt; </code>
-          <code>        &lt;Route path={AppRoute.ABOUT} component={About} /&gt; </code>
-          <code>        &lt;Route path={AppRoute.ROOT} component={Home} /&gt; </code>
-          <code>      &lt;/Switch&gt; </code>
+          <code>      <mark>&lt;Switch&gt;</mark> </code>
+          <code>        <mark>&lt;Route path={AppRoute.ABOUT} component={About} /&gt;</mark></code>
+          <code>        <mark>&lt;Route path={AppRoute.ROOT} component={Home} /&gt;</mark></code>
+          <code>      <mark>&lt;/Switch&gt;</mark> </code>
           <code>    &lt;/&gt; </code>
-          <code>  &lt;/Router&gt;</code>
+          <code>  <mark>&lt;/Router&gt;</mark></code>
           <code>); </code>
         </pre>
       </div>
@@ -600,7 +721,7 @@
       <a href="https://github.com/shower/shower">Fork me on GitHub</a>
     </footer>
 
-    <div class="progress"></div>
+    <!-- <div class="progress"></div> -->
 
     <script src="shower/shower.js"></script>
     <!-- Copyright © 3000 Yours Truly, Famous Inc. -->
