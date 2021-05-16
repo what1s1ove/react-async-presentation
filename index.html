@@ -491,7 +491,10 @@
 
     <section class="slide slide--bsa" id="redux-saga">
       <h2>Redux Saga</h2>
-      <img class="next" src="pictures/redux-saga-logo.svg" width="400" alt="Redux Saga">
+      <div class="next">
+        <p>Sagas are implemented as <b>Generator</b> functions that yield objects</p>
+        <img src="pictures/redux-saga-logo.svg" width="400" alt="Redux Saga">
+      </div>
       <a href="https://redux-saga.js.org/" target="_blank" rel="noreferrer">
         Redux Saga
       </a>
@@ -507,7 +510,8 @@
         }
 
         #redux-saga img {
-          align-self: center;
+          display: block;
+          margin: 0 auto;
         }
 
         #redux-saga a {
@@ -518,21 +522,75 @@
       </style>
     </section>
 
-    <section class="slide slide--bsa" id="redux-saga-basic">
-      <h2>Redux Saga</h2>
-      <p class="next">Sagas are implemented as <b>Generator</b> functions that yield objects</p>
-      <div class="next">
-        <h3>Concepts:</h3>
+    <section class="slide slide--bsa" id="redux-saga-effects">
+      <h2>Redux Saga Effects</h2>
+      <div class="redux-saga-effects__wrapper next">
         <ul>
-          <li>Saga</li>
-          <li class="next">Effects</li>
-          <li class="next">Channels</li>
+          <li>
+            <a href="https://redux-saga.js.org/docs/api/#callfn-args" target="_blank" rel="noreferrer">call</a>
+            — calls function with passed arguments
+          </li>
+          <li class="next">
+            <a href="https://redux-saga.js.org/docs/api/#putaction" target="_blank" rel="noreferrer">put</a>
+            — dispatches action
+          </li>
+          <li class="next">
+            <a href="https://redux-saga.js.org/docs/api/#selectselector-args" target="_blank" rel="noreferrer">select</a>
+            — gets data from store
+          </li>
+          <li class="next">
+            <a href="https://redux-saga.js.org/docs/api/#takeeverypattern-saga-args" target="_blank" rel="noreferrer">takeEvery</a>
+            — spawns saga on each dispatched action
+          </li>
+          <li class="next">
+            and 50+ more
+          </li>
         </ul>
+        <pre>
+          <code>import { <mark>mark</mark>, <mark>put</mark>, <mark>takeEvery</mark> } from 'redux-saga/effects';</code>
+          <code> </code>
+          <code>function* getUser(action) {</code>
+          <code>  try {</code>
+          <code>    const user = yield <mark>call</mark>(userApi.fetchUser, action.payload.userId);</code>
+          <code>    yield <mark>put</mark>({ type: UserActionType.GET_USER_SUCCESS, user: user });</code>
+          <code>  } catch (err) {</code>
+          <code>    yield <mark>put</mark>({ type: UserActionType.GET_USER_FAIL, message: err.message });</code>
+          <code>  }</code>
+          <code>}</code>
+          <code> </code>
+          <code>function* userSaga() {</code>
+          <code>  yield <mark>takeEvery</mark>(UserActionType.GET_USER, getUser);</code>
+          <code>}</code>
+        </pre>
       </div>
+      <a class="redux-saga-effects__link" href="https://redux-saga.js.org/docs/api/#effect-creators" target="_blank" rel="noreferrer">
+        Redux Saga Effects
+      </a>
 
       <style>
-        #redux-saga-basic h3 {
-          margin: 0 5px;
+        #redux-saga-effects {
+          display: flex;
+          flex-direction: column;
+        }
+
+        #redux-saga-effects .redux-saga-effects__wrapper {
+          display: flex;
+        }
+
+        #redux-saga-effects ul {
+          font-size: 14px;
+          margin-right: 50px;
+          white-space: nowrap;
+        }
+
+        #redux-saga-effects pre {
+          font-size: 12px;
+        }
+
+        #redux-saga-effects .redux-saga-effects__link {
+          align-self: center;
+          margin: auto 0 30px;
+          font-size: 12px;
         }
       </style>
     </section>
@@ -601,18 +659,18 @@
           <code>import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';</code>
           <code> </code>
           <code>const App = () => ( </code>
-          <code>  &lt;Router&gt; </code>
+          <code>  <mark>&lt;Router&gt;</mark> </code>
           <code>    &lt;&gt; </code>
           <code>      &lt;ul&gt; </code>
-          <code>        &lt;li&gt;&lt;Link to={AppRoute.ROOT}&gt;Home&lt;/Link&gt;&lt;/li&gt;</code>
-          <code>        &lt;li&gt;&lt;Link to={AppRoute.ABOUT}&gt;About&lt;/Link&gt;&lt;/li&gt;</code>
+          <code>        &lt;li&gt;<mark>&lt;Link to={AppRoute.ROOT}&gt;</mark>Home<mark>&lt;/Link&gt;</mark>&lt;/li&gt;</code>
+          <code>        &lt;li&gt;<mark>&lt;Link to={AppRoute.ABOUT}&gt;</mark>About<mark>&lt;/Link&gt;</mark>&lt;/li&gt;</code>
           <code>      &lt;/ul&gt; </code>
-          <code>      &lt;Switch&gt; </code>
-          <code>        &lt;Route path={AppRoute.ABOUT} component={About} /&gt; </code>
-          <code>        &lt;Route path={AppRoute.ROOT} component={Home} /&gt; </code>
-          <code>      &lt;/Switch&gt; </code>
+          <code>      <mark>&lt;Switch&gt;</mark> </code>
+          <code>        <mark>&lt;Route path={AppRoute.ABOUT} component={About} /&gt;</mark></code>
+          <code>        <mark>&lt;Route path={AppRoute.ROOT} component={Home} /&gt;</mark></code>
+          <code>      <mark>&lt;/Switch&gt;</mark> </code>
           <code>    &lt;/&gt; </code>
-          <code>  &lt;/Router&gt;</code>
+          <code>  <mark>&lt;/Router&gt;</mark></code>
           <code>); </code>
         </pre>
       </div>
