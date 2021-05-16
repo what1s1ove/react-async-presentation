@@ -79,7 +79,7 @@
 
     <section class="slide slide--bsa" id="react-hooks">
       <h2>React Hooks</h2>
-      <p class="next"><i>Hooks</i> are a new addition in React <b>16.8</b>. They let you use state and other React features without writing a class.</p>
+      <p class="next">Hooks are a new addition in React <b>16.8</b>. They let you use state and other React features without writing a class.</p>
       <pre class="next">
         <code>const Counter = () => {</code>
         <code class="mark next">  const [count, setCount] = React.useState(0);</code>
@@ -139,7 +139,7 @@
         <li class="next">Reuse code and void HOC Hell</li>
         <li class="next">
           Add missing features to functional components:
-          <ul class="next">
+          <ul>
             <li>State</li>
             <li class="next">Side effects</li>
             <li class="next">Lifecycle methods</li>
@@ -165,7 +165,7 @@
         <li class="next">Hooks can only be used in components or custom hooks</li>
         <li class="next">
           No support for all lifecycle methods:
-          <ul class="next">
+          <ul>
             <li>getSnapshotBeforeUpdate</li>
             <li>getDerivedStateFromError</li>
             <li>componentDidCatch</li>
@@ -462,67 +462,115 @@
 
     <section class="slide slide--bsa" id="redux-toolkit">
       <h2>Redux Toolkit</h2>
-      <a class="next" href="https://redux-toolkit.js.org/" target="_blank" rel="noreferrer">
-        <img src="pictures/redux-logo.svg" width="250" alt="Redux Toolkit">
+      <img class="next" src="pictures/redux-logo.svg" width="250" alt="Redux Toolkit">
+      <a href="https://redux-toolkit.js.org/" target="_blank" rel="noreferrer">
+        Redux Toolkit
       </a>
 
       <style>
+        #redux-toolkit {
+          display: flex;
+          flex-direction: column;
+        }
+
         #redux-toolkit h2 {
           margin-bottom: 50px;
         }
 
+        #redux-toolkit img {
+          align-self: center;
+        }
+
         #redux-toolkit a {
-          display: flex;
-          justify-content: center;
-          background-image: none;
+          align-self: center;
+          margin: auto 0 30px;
+          font-size: 12px;
         }
       </style>
     </section>
 
     <section class="slide slide--bsa" id="redux-saga">
       <h2>Redux Saga</h2>
-      <a class="next" href="https://redux-saga.js.org/" target="_blank" rel="noreferrer">
-        <img src="pictures/redux-saga-logo.svg" width="400" alt="Redux Saga">
+      <img class="next" src="pictures/redux-saga-logo.svg" width="400" alt="Redux Saga">
+      <a href="https://redux-saga.js.org/" target="_blank" rel="noreferrer">
+        Redux Saga
       </a>
 
       <style>
+        #redux-saga {
+          display: flex;
+          flex-direction: column;
+        }
+
         #redux-saga h2 {
-          margin-bottom: 75px;
+          margin-bottom: 50px;
+        }
+
+        #redux-saga img {
+          align-self: center;
         }
 
         #redux-saga a {
-          display: flex;
-          justify-content: center;
-          background-image: none;
+          align-self: center;
+          margin: auto 0 30px;
+          font-size: 12px;
+        }
+      </style>
+    </section>
+
+    <section class="slide slide--bsa" id="redux-saga-basic">
+      <h2>Redux Saga</h2>
+      <p class="next">Sagas are implemented as <b>Generator</b> functions that yield objects</p>
+      <div class="next">
+        <h3>Concepts:</h3>
+        <ul>
+          <li>Saga</li>
+          <li class="next">Effects</li>
+          <li class="next">Channels</li>
+        </ul>
+      </div>
+
+      <style>
+        #redux-saga-basic h3 {
+          margin: 0 5px;
         }
       </style>
     </section>
 
     <section class="slide slide--bsa" id="react-router">
       <h2>React Router</h2>
-
-      <a class="thunk__link next" href="https://reactrouter.com/" target="_blank" rel="noreferrer">
-        <img src="pictures/react-router-logo.svg" width="250" alt="React Router">
+      <img class="next" src="pictures/react-router-logo.svg" width="250" alt="React Router">
+      <a href="https://reactrouter.com/" target="_blank" rel="noreferrer">
+        React Router
       </a>
 
       <style>
+        #react-router {
+          display: flex;
+          flex-direction: column;
+        }
+
         #react-router h2 {
           margin-bottom: 100px;
         }
 
+        #react-router img {
+          align-self: center;
+        }
+
         #react-router a {
-          display: flex;
-          justify-content: center;
-          background-image: none;
+          align-self: center;
+          margin: auto 0 30px;
+          font-size: 12px;
         }
       </style>
     </section>
 
     <section class="slide slide--bsa" id="react-router-example">
       <h2>React Router</h2>
-      <div class="react-router-example__wrapper">
+      <div class="react-router-example__wrapper next">
         <ul>
-          <li class="next">
+          <li>
             <a href="https://reactrouter.com/web/api/BrowserRouter" target="_blank" rel="noreferrer">BrowserRouter</a>
           </li>
           <li class="next">
