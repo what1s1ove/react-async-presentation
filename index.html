@@ -420,13 +420,7 @@
         }
 
         #redux-middleware pre {
-          display: block;
           font-size: 15px;
-        }
-
-        #redux-middleware pre.active,
-        #redux-middleware pre.visited {
-          display: block;
         }
 
         #redux-middleware a {
@@ -509,7 +503,7 @@
         }
 
         #redux-saga h2 {
-          margin-bottom: 50px;
+          margin-bottom: 5px;
         }
 
         #redux-saga img {
@@ -527,12 +521,100 @@
 
     <section class="slide slide--bsa" id="redux-saga-flow">
       <h2>Redux Saga Flow</h2>
-      <img src="pictures/redux-sage-schema.png" width="450" alt="Redux Saga Schema">
+      <img class="next" src="pictures/redux-sage-schema.png" width="450" alt="Redux Saga Schema">
+      <ul class="next">
+        <li>
+          <a href="https://redux-saga.js.org/docs/basics/UsingSagaHelpers/#using-saga-helpers" target="_blank" rel="noreferrer">
+            Saga Helpers
+          </a>
+        </li>
+        <li>
+          <a href="https://redux-saga.js.org/docs/api/#effect-creators" target="_blank" rel="noreferrer">
+            Saga Effects
+          </a>
+        </li>
+      </ul>
 
       <style>
         #redux-saga-flow img {
           display: block;
           margin: 0 auto;
+        }
+
+        #redux-saga-flow ul {
+          display: flex;
+          justify-content: center;
+          gap: 0 30px;
+          font-size: 15px;
+        }
+
+        #redux-saga-flow li::before {
+          display: none;
+        }
+      </style>
+    </section>
+
+    <section class="slide slide--bsa" id="redux-saga-helpers">
+      <h2>Redux Saga Helpers</h2>
+      <div class="redux-saga-helpers__wrapper next">
+        <ul>
+          <li>
+            <a href="https://redux-saga.js.org/docs/api/#takeeverypattern-saga-args" target="_blank" rel="noreferrer">takeEvery</a>
+            — spawns saga on each dispatched action
+          </li>
+          <li class="next">
+            <a href="https://redux-saga.js.org/docs/api/#takelatestpattern-saga-args" target="_blank" rel="noreferrer">takeLatest</a>
+            — spawns saga on the <b>last</b> dispatched action
+          </li>
+          <li class="next">
+            and other
+          </li>
+        </ul>
+        <pre>
+          <code>import { call, put, <mark>takeEvery</mark> } from 'redux-saga/effects';</code>
+          <code> </code>
+          <code>function* getUser(action) {</code>
+          <code>  try {</code>
+          <code>    const user = yield call(userApi.fetchUser, action.payload.userId);</code>
+          <code>    yield put({ type: UserActionType.GET_USER_SUCCESS, user: user });</code>
+          <code>  } catch (err) {</code>
+          <code>    yield put({ type: UserActionType.GET_USER_FAIL, message: err.message });</code>
+          <code>  }</code>
+          <code>}</code>
+          <code> </code>
+          <code>function* userSaga() {</code>
+          <code>  yield <mark>takeEvery</mark>(UserActionType.GET_USER, getUser);</code>
+          <code>}</code>
+        </pre>
+      </div>
+      <a class="redux-saga-helpers__link" href="https://redux-saga.js.org/docs/basics/UsingSagaHelpers/#using-saga-helpers" target="_blank" rel="noreferrer">
+        Using Saga Helpers
+      </a>
+
+      <style>
+        #redux-saga-helpers {
+          display: flex;
+          flex-direction: column;
+        }
+
+        #redux-saga-helpers .redux-saga-helpers__wrapper {
+          display: flex;
+        }
+
+        #redux-saga-helpers ul {
+          font-size: 14px;
+          margin-right: 50px;
+          white-space: nowrap;
+        }
+
+        #redux-saga-helpers pre {
+          font-size: 12px;
+        }
+
+        #redux-saga-helpers .redux-saga-helpers__link {
+          align-self: center;
+          margin: auto 0 30px;
+          font-size: 12px;
         }
       </style>
     </section>
@@ -543,26 +625,22 @@
         <ul>
           <li>
             <a href="https://redux-saga.js.org/docs/api/#callfn-args" target="_blank" rel="noreferrer">call</a>
-            — calls function with passed arguments
+            — calls function with passed arguments 🛑
           </li>
           <li class="next">
             <a href="https://redux-saga.js.org/docs/api/#putaction" target="_blank" rel="noreferrer">put</a>
-            — dispatches action
+            — dispatches action 🟢
           </li>
           <li class="next">
             <a href="https://redux-saga.js.org/docs/api/#selectselector-args" target="_blank" rel="noreferrer">select</a>
-            — gets data from store
-          </li>
-          <li class="next">
-            <a href="https://redux-saga.js.org/docs/api/#takeeverypattern-saga-args" target="_blank" rel="noreferrer">takeEvery</a>
-            — spawns saga on each dispatched action
+            — gets data from store 🟢
           </li>
           <li class="next">
             and 50+ more
           </li>
         </ul>
         <pre>
-          <code>import { <mark>mark</mark>, <mark>put</mark>, <mark>takeEvery</mark> } from 'redux-saga/effects';</code>
+          <code>import { <mark>call</mark>, <mark>put</mark>, takeEvery } from 'redux-saga/effects';</code>
           <code> </code>
           <code>function* getUser(action) {</code>
           <code>  try {</code>
@@ -574,7 +652,7 @@
           <code>}</code>
           <code> </code>
           <code>function* userSaga() {</code>
-          <code>  yield <mark>takeEvery</mark>(UserActionType.GET_USER, getUser);</code>
+          <code>  yield takeEvery(UserActionType.GET_USER, getUser);</code>
           <code>}</code>
         </pre>
       </div>
@@ -603,6 +681,49 @@
         }
 
         #redux-saga-effects .redux-saga-effects__link {
+          align-self: center;
+          margin: auto 0 30px;
+          font-size: 12px;
+        }
+      </style>
+    </section>
+
+    <section class="slide slide--bsa" id="redux-saga-routine">
+      <h2>Redux Saga Routine</h2>
+      <pre class="next">
+        <code>import { <mark class="important">createRoutine</mark> } from 'redux-saga-routines';</code>
+        <code> </code>
+        <code>const routine = <mark class="important">createRoutine('ACTION_TYPE')</mark>;</code>
+        <code> </code>
+        <code class="mark next">// Action Types. Also: TRIGGER, REQUEST, FULFILL</code>
+        <code>console.log(routine.SUCCESS); // 'ACTION_TYPE/SUCCESS';</code>
+        <code>console.log(routine.FAILURE); // 'ACTION_TYPE/FAILURE';</code>
+        <code> </code>
+        <code class="mark next">// Action Creators. Also: trigger, request, fulfill</code>
+        <code>console.log(routine.success(payload)); // { type: 'ACTION_TYPE/SUCCESS', payload };</code>
+        <code>console.log(routine.failure(payload)); // { type: 'ACTION_TYPE/FAILURE', payload };</code>
+      </pre>
+      <a href="https://github.com/afitiskin/redux-saga-routines#readme" target="_blank" rel="noreferrer">
+        github.com/redux-saga-routines
+      </a>
+
+      <style>
+        #redux-saga-routine {
+          display: flex;
+          flex-direction: column;
+        }
+
+        #redux-saga-routine  pre {
+          display: none;
+          font-size: 14px;
+        }
+
+        #redux-saga-routine  pre.active,
+        #redux-saga-routine  pre.visited {
+          display: block;
+        }
+
+        #redux-saga-routine a {
           align-self: center;
           margin: auto 0 30px;
           font-size: 12px;
@@ -671,7 +792,7 @@
           </li>
         </ul>
         <pre>
-          <code>import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';</code>
+          <code>import { <mark>BrowserRouter as Router</mark>, <mark>Route</mark>, <mark>Switch</mark>, <mark>Link</mark> } from 'react-router-dom';</code>
           <code> </code>
           <code>const App = () => ( </code>
           <code>  <mark>&lt;Router&gt;</mark> </code>
