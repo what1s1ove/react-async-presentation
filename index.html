@@ -420,13 +420,7 @@
         }
 
         #redux-middleware pre {
-          display: block;
           font-size: 15px;
-        }
-
-        #redux-middleware pre.active,
-        #redux-middleware pre.visited {
-          display: block;
         }
 
         #redux-middleware a {
@@ -696,6 +690,45 @@
 
     <section class="slide slide--bsa" id="redux-saga-routine">
       <h2>Redux Saga Routine</h2>
+      <pre class="next">
+        <code>import { <mark class="important">createRoutine</mark> } from 'redux-saga-routines';</code>
+        <code> </code>
+        <code>const routine = <mark class="important">createRoutine('ACTION_TYPE')</mark>;</code>
+        <code> </code>
+        <code class="mark next">// Action Types. Also: TRIGGER, REQUEST, FULFILL</code>
+        <code>console.log(routine.SUCCESS); // 'ACTION_TYPE/SUCCESS';</code>
+        <code>console.log(routine.FAILURE); // 'ACTION_TYPE/FAILURE';</code>
+        <code> </code>
+        <code class="mark next">// Action Creators. Also: trigger, request, fulfill</code>
+        <code>console.log(routine.success(payload)); // { type: 'ACTION_TYPE/SUCCESS', payload };</code>
+        <code>console.log(routine.failure(payload)); // { type: 'ACTION_TYPE/FAILURE', payload };</code>
+      </pre>
+      <a href="https://github.com/afitiskin/redux-saga-routines#readme" target="_blank" rel="noreferrer">
+        github.com/redux-saga-routines
+      </a>
+
+      <style>
+        #redux-saga-routine {
+          display: flex;
+          flex-direction: column;
+        }
+
+        #redux-saga-routine  pre {
+          display: none;
+          font-size: 14px;
+        }
+
+        #redux-saga-routine  pre.active,
+        #redux-saga-routine  pre.visited {
+          display: block;
+        }
+
+        #redux-saga-routine a {
+          align-self: center;
+          margin: auto 0 30px;
+          font-size: 12px;
+        }
+      </style>
     </section>
 
     <section class="slide slide--bsa" id="react-router">
@@ -759,7 +792,7 @@
           </li>
         </ul>
         <pre>
-          <code>import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';</code>
+          <code>import { <mark>BrowserRouter as Router</mark>, <mark>Route</mark>, <mark>Switch</mark>, <mark>Link</mark> } from 'react-router-dom';</code>
           <code> </code>
           <code>const App = () => ( </code>
           <code>  <mark>&lt;Router&gt;</mark> </code>
