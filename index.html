@@ -527,18 +527,41 @@
 
     <section class="slide slide--bsa" id="redux-saga-flow">
       <h2>Redux Saga Flow</h2>
-      <img src="pictures/redux-sage-schema.png" width="450" alt="Redux Saga Schema">
+      <img class="next" src="pictures/redux-sage-schema.png" width="450" alt="Redux Saga Schema">
+      <ul class="next">
+        <li>
+          <a href="https://redux-saga.js.org/docs/basics/UsingSagaHelpers/#using-saga-helpers" target="_blank" rel="noreferrer">
+            Saga Helpers
+          </a>
+        </li>
+        <li>
+          <a href="https://redux-saga.js.org/docs/api/#effect-creators" target="_blank" rel="noreferrer">
+            Saga Effects
+          </a>
+        </li>
+      </ul>
 
       <style>
         #redux-saga-flow img {
           display: block;
           margin: 0 auto;
         }
+
+        #redux-saga-flow ul {
+          display: flex;
+          justify-content: center;
+          gap: 0 30px;
+          font-size: 15px;
+        }
+
+        #redux-saga-flow li::before {
+          display: none;
+        }
       </style>
     </section>
 
     <section class="slide slide--bsa" id="redux-saga-helpers">
-      <h2>Saga Helpers</h2>
+      <h2>Redux Saga Helpers</h2>
       <div class="redux-saga-helpers__wrapper next">
         <ul>
           <li>
@@ -673,12 +696,6 @@
 
     <section class="slide slide--bsa" id="redux-saga-routine">
       <h2>Redux Saga Routine</h2>
-      <ul>
-        <li class="next">
-          <a href="https://redux-saga.js.org/docs/api/#takeeverypattern-saga-args" target="_blank" rel="noreferrer">takeEvery</a>
-          — spawns saga on each dispatched action
-        </li>
-      </ul>
     </section>
 
     <section class="slide slide--bsa" id="react-router">
