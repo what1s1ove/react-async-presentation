@@ -82,7 +82,7 @@
 
     <section class="slide slide--bsa" id="react-hooks">
       <h2>React Hooks</h2>
-      <p class="next">Hooks are a new addition in React <b>16.8</b>. They let you use state and other React features without writing a class.</p>
+      <p class="next">Hooks are an addition in React <b>16.8</b>. They let you use state and other React features without writing a class.</p>
       <pre class="next">
         <code>const Counter = () => {</code>
         <code class="mark next">  const [count, setCount] = React.useState(0);</code>
@@ -532,6 +532,11 @@
       </ul>
 
       <style>
+        #redux-saga-flow {
+          display: flex;
+          flex-direction: column;
+        }
+
         #redux-saga-flow img {
           display: block;
           margin: 0 auto;
@@ -541,6 +546,7 @@
           display: flex;
           justify-content: center;
           gap: 0 30px;
+          margin: auto 0 30px;
           font-size: 15px;
         }
 
@@ -584,7 +590,7 @@
         </pre>
       </div>
       <a class="redux-saga-helpers__link" href="https://redux-saga.js.org/docs/basics/UsingSagaHelpers/#using-saga-helpers" target="_blank" rel="noreferrer">
-        Using Saga Helpers
+        Redux Saga Helpers
       </a>
 
       <style>
@@ -788,10 +794,10 @@
           </li>
         </ul>
         <pre>
-          <code>import { <mark>BrowserRouter as Router</mark>, <mark>Route</mark>, <mark>Switch</mark>, <mark>Link</mark> } from 'react-router-dom';</code>
+          <code>import { <mark>BrowserRouter</mark>, <mark>Route</mark>, <mark>Switch</mark>, <mark>Link</mark> } from 'react-router-dom';</code>
           <code> </code>
           <code>const App = () => ( </code>
-          <code>  <mark>&lt;Router&gt;</mark> </code>
+          <code>  <mark>&lt;BrowserRouter&gt;</mark> </code>
           <code>    &lt;&gt; </code>
           <code>      &lt;ul&gt; </code>
           <code>        &lt;li&gt;<mark>&lt;Link to={AppRoute.ROOT}&gt;</mark>Home<mark>&lt;/Link&gt;</mark>&lt;/li&gt;</code>
@@ -802,7 +808,7 @@
           <code>        <mark>&lt;Route path={AppRoute.ROOT} component={Home} /&gt;</mark></code>
           <code>      <mark>&lt;/Switch&gt;</mark> </code>
           <code>    &lt;/&gt; </code>
-          <code>  <mark>&lt;/Router&gt;</mark></code>
+          <code>  <mark>&lt;/BrowserRouter&gt;</mark></code>
           <code>); </code>
         </pre>
       </div>
